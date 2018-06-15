@@ -11,6 +11,7 @@ import { ProductosService } from "../../services/productos.service";
 export class PortfolioItemComponent  {
 
 	producto:any = undefined;
+  cod:string = undefined;
 
   constructor( private route:ActivatedRoute, private _ps:ProductosService) {
 
@@ -18,10 +19,12 @@ export class PortfolioItemComponent  {
 
   		console.log( parametros['id']);
 
+
   		_ps.cargar_item(parametros['id'])
   			.subscribe( res =>{
-
+          this.cod = parametros['id'];
   				this.producto= res.json();
+          console.log(this.producto);
 
   			});
 
