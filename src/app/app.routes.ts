@@ -12,7 +12,7 @@ const app_routes: Routes = [
 
 	{ path: 'home', component: PortafolioComponent }, // Home principal
 	{ path: 'about', component: AboutComponent },
-	{ path: 'producto', component: PortfolioItemComponent },
+	{ path: 'producto/:id', component: PortfolioItemComponent },
 	{ path: '**', pathMatch: 'full', redirectTo: 'home' }
 
 ];

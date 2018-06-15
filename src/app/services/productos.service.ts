@@ -15,6 +15,11 @@ export class ProductosService {
 
   }
 
+  public cargar_item( cod:string ){
+
+    return this.http.get(`https://paginaweb-10bdb.firebaseio.com/productos/${ cod }.json`);
+  }
+
   public cargar_productos(){
 
   	this.cargando = true;
@@ -24,11 +29,15 @@ export class ProductosService {
   		this.http.get('https://paginaweb-10bdb.firebaseio.com/productos_idx.json')
   							.subscribe( res => {
 
-  								console.log( res.json() );
-  								this.productos = res.json();
-  								this.cargando = false;
+  								//console.log( res.json() );
 
-  							})
+  								//setTimeout(()=>{
+										this.productos = res.json();
+  									this.cargando = false;
+  								//},1500 )
+  								
+
+  							});
 
   	//}
   }
